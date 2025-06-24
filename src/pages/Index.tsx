@@ -5,6 +5,7 @@ import { Mission } from '../components/Mission';
 import { CoreServices } from '../components/CoreServices';
 import { BespokeAutomation } from '../components/BespokeAutomation';
 import { CTABanner } from '../components/CTABanner';
+import { ContactForm } from '../components/ContactForm';
 import { Footer } from '../components/Footer';
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <CoreServices />
       <BespokeAutomation />
       <CTABanner />
+      <ContactForm />
       <Footer />
     </div>
   );

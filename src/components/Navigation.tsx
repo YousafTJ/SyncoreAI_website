@@ -28,11 +28,12 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
-            <span className="text-xl font-bold text-white">SyncoreAI</span>
+          <div className="flex items-center space-x-3">
+            <img 
+              src="https://ellprnxjjzatijdxcogk.supabase.co/storage/v1/object/public/superdev-project-images/cf3dd1b7-57c8-41e3-8849-d51c11792ac9/h8lk3brxodcgb9vcfbum/1750793577119-SyncoreAILogo.jpg" 
+              alt="SyncoreAI Logo" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -55,8 +56,11 @@ export function Navigation() {
             >
               Automation
             </button>
-            <button className="btn-primary">
-              Book Demo
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="btn-primary"
+            >
+              Book Møde
             </button>
           </div>
 
@@ -92,8 +96,11 @@ export function Navigation() {
             >
               Automation
             </button>
-            <button className="btn-primary w-full">
-              Book Demo
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="btn-primary w-full"
+            >
+              Book Møde
             </button>
           </div>
         )}

@@ -1,6 +1,13 @@
 import { ArrowRight, Cog, Lightbulb, Target } from 'lucide-react';
 
 export function BespokeAutomation() {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="automation" className="section-padding">
       <div className="max-w-6xl mx-auto">
@@ -48,7 +55,10 @@ export function BespokeAutomation() {
           </div>
 
           <div className="text-center">
-            <button className="btn-primary flex items-center justify-center space-x-2 mx-auto">
+            <button 
+              onClick={scrollToContact}
+              className="btn-primary flex items-center justify-center space-x-2 mx-auto"
+            >
               <span>Book Strategi-Call</span>
               <ArrowRight size={20} />
             </button>
