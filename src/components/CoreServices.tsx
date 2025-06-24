@@ -72,13 +72,13 @@ export function CoreServices() {
   ];
 
   return (
-    <section id="services" className="section-padding">
+    <section id="services" className="section-padding bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
             Our Core <span className="gradient-text">AI-Agents</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Mød vores intelligente agenter, der hver især specialiserer sig i at automatisere 
             og optimere specifikke forretningsområder.
           </p>

@@ -9,7 +9,7 @@ export function CTABanner() {
   };
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <div className="gradient-primary rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
           {/* Background pattern */}
@@ -29,9 +29,9 @@ export function CTABanner() {
             </p>
             <button 
               onClick={scrollToContact}
-              className="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 mx-auto"
+              className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2 mx-auto"
             >
-              <span>Book Møde Nu</span>
+              <span>Kontakt Os Nu</span>
               <ArrowRight size={20} />
             </button>
           </div>

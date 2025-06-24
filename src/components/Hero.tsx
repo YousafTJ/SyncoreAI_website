@@ -9,23 +9,21 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-purple-800/20 to-transparent"></div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 gradient-primary rounded-full opacity-20 animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 bg-purple-500/20 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-      <div className="absolute top-1/2 right-20 w-12 h-12 bg-purple-600/20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white pt-20">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-20 h-20 gradient-primary rounded-full opacity-10 animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-purple-200 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 right-20 w-12 h-12 bg-purple-300 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
         <div className="fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Supercharge your business with{' '}
-            <span className="gradient-text">AI agents</span>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+            <span className="gradient-text">SyncoreAI</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
             AI-agenter der arbejder for dig – døgnet rundt. Automatisér processer, øg salget og frigør værdifuld tid.
           </p>
 
@@ -34,38 +32,35 @@ export function Hero() {
               onClick={scrollToContact}
               className="btn-primary flex items-center justify-center space-x-2"
             >
-              <span>Book Møde</span>
+              <span>Kontakt Os</span>
               <ArrowRight size={20} />
-            </button>
-            <button className="btn-secondary">
-              Se Use-Cases
             </button>
           </div>
 
           {/* Key benefits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card p-6 text-center">
+            <div className="glass-card p-6 text-center hover:shadow-xl transition-all duration-300">
               <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Clock className="text-white" size={24} />
               </div>
-              <h3 className="text-lg font-semibold mb-2">24/7 Automation</h3>
-              <p className="text-gray-400">Dine AI-agenter arbejder døgnet rundt</p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">24/7 Automation</h3>
+              <p className="text-gray-600">Dine AI-agenter arbejder døgnet rundt</p>
             </div>
             
-            <div className="glass-card p-6 text-center">
+            <div className="glass-card p-6 text-center hover:shadow-xl transition-all duration-300">
               <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Zap className="text-white" size={24} />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Øget Effektivitet</h3>
-              <p className="text-gray-400">Automatisér manuelle processer</p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Øget Effektivitet</h3>
+              <p className="text-gray-600">Automatisér manuelle processer</p>
             </div>
             
-            <div className="glass-card p-6 text-center">
+            <div className="glass-card p-6 text-center hover:shadow-xl transition-all duration-300">
               <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Bot className="text-white" size={24} />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Intelligente Agenter</h3>
-              <p className="text-gray-400">AI der lærer og tilpasser sig</p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Intelligente Agenter</h3>
+              <p className="text-gray-600">AI der lærer og tilpasser sig</p>
             </div>
           </div>
         </div>
