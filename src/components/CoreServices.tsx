@@ -1,97 +1,107 @@
-import { AgentCard } from './AgentCard';
+// CoreServices.tsx
+import { AgentCard } from "./AgentCard";
 
 export function CoreServices() {
   const agents = [
+    // ─────────  LEONARDO  ─────────
     {
       name: "Leonardo",
       title: "Sales Agent",
-      description: "Automatiserer HELE salgsrejsen, 24/7.",
-      emoji: "🟦",
-      avatarGradient: "avatar-gradient-blue",
-      modules: [
-        "Lead Hunt & Qualify – finder og sorterer leads, høj ICP-score",
-        "AI Form-Responder – autosvar + møde­booking på indkomne formularer",
-        "One-Click Mail Sender – skriv én sætning → personlig e-mail sendes",
-        "Smart Website-Chat – svarer, kvalificerer, booker møder",
-        "Sales Script Generator – pitch, pain-points & benefits klar til samtalen",
-        "ROI & Deal Forecasting – vurderer CLV, forudsiger lukkesandsynlighed",
-        "Performance Reporter – ugentlig rapport: leads, møder, salg, prognose",
-        "Win-Back Engine – genaktiverer kolde eller tabte kunder"
-      ]
+      image: "/sales.png",
+      pitch:
+          "Automatiserer hele salgsrejsen – fra første lead til loyal kunde – og arbejder døgnet rundt for at fylde din pipeline.",
+      features: [
+        "Finder og kvalificerer friske leads hver dag",
+        "Sender personlige intro-mails og booker møder for dig",
+        "Live chat der svarer, kvalificerer og opsætter demo-calls, både over hjemmeside og mail (instagram, messenger og whatsapp kan tilføjes)",
+        "Genererer skræddersyede salgsscripts klar til mødet",
+        "Sender professionel mail bare ved at du skriver et par ord",
+        "Virtuel kundeservice - kunder kan opdatere oplysninger, se ordre, økonomisk status eller andet og meget mere",
+      ],
     },
+
+    // ─────────  IMRAN  ─────────
     {
       name: "Imran",
       title: "Accounting Agent",
-      description: "Optimerer regnskab & rapportering, reducerer tastearbejde.",
-      emoji: "🟪",
-      avatarGradient: "avatar-gradient-purple",
-      modules: [
-        "Payroll Import – henter og validerer løndata automatisk",
-        "Deadline Reminder – varsler moms, løn, årsrapport, bilagsmangler",
-        "Monthly KPI Report – beregner 12+ nøgletal, forklarer i almindeligt sprog",
-        "Accounting Chatbot – forklarer nøgletal, benchmarking, next steps",
-        "Onboarding + KYC – indsamler data, opretter kunde, kontrakt-signering",
-        "Annual Report Builder – klargør årsrapport klar til indsendelse"
-      ]
+      image: "/accounting.png",
+      pitch:
+          "Din digitale revisorassistent, der henter data, laver nøgletals-analyser og holder kunderne i loop – helt automatisk.",
+      features: [
+        "Henter og validerer løndata – klar til import på få sekunder",
+        "Sender automatiske påmindelser om moms, løn og årsluk",
+        "Leverer månedlige KPI-rapporter forklaret i menneskesprog",
+        "Chatbot med regnskabsforståelse til dine kunder 24/7",
+        "Onboarder nye klienter inkl. KYC & kontrakt-signatur",
+        "Klargør årsrapporten, så du kun skal godkende",
+      ],
     },
-    {
-      name: "Sophie",
-      title: "HR Agent",
-      description: "Digital HR-partner der dækker hele medarbejder-livscyklussen.",
-      emoji: "🟩",
-      avatarGradient: "avatar-gradient-green",
-      modules: [
-        "Talent Screener – scorer CV/ansøgning, fremhæver styrker & svagheder",
-        "Interview Architect – job- & kandidat-specifikke spørgsmål i PDF",
-        "Pre- & Onboarding FlowBot – invites, guides, status-dashboard",
-        "HR Chat Assistant – svarer på ferie, lønsedler, policies m.m.",
-        "Talent Sourcer – identificerer og kontakter relevante kandidater",
-        "AutoDoc HR – kontrakter, advarsler, opsigelser genereres & arkiveres",
-        "QuickMail HR – én linje input → professionel e-mail sendes",
-        "Auto-Meeting Planner – finder mødetider på tværs af kalendere",
-        "Deadline Nagger – påmindelser om MUS, evalueringer, kursusfrister"
-      ]
-    },
+
+    // ─────────  JORDAN  ─────────
     {
       name: "Jordan",
       title: "Business Agent",
-      description: "Marketing- & driftspartner, fra SEO til lager­optimering.",
-      emoji: "🟥",
-      avatarGradient: "avatar-gradient-red",
-      modules: [
-        "SEO Mastermind – løbende analyse, strategi, rapport & alerts",
-        "SOME Creator + AutoPoster – AI-tekst + billede, auto-upload & planlægning",
-        "UX Tracker & Conversion Strategist – analyserer adfærd, foreslår forbedringer",
-        "Competitor Monitor Pro – ugentlig konkurrent-rapport med indsigter",
-        "Smart Meeting Booker – finder & booker ledige tidsrum automatisk",
-        "Intelligent Auto-Reply & Sentiment Filter – læser mails, svarer korrekt tone, flagger klager",
-        "Inventory Optimizer – forudser genbestilling & foreslår leverandører",
-        "Market Pulse Tracker – overvåger søgetrends, markedsdata, giver tidlige signaler"
-      ]
-    }
+      image: "/business.png",
+      pitch:
+          "Din AI-drevne vækstpartner: løfter SEO, content, UX, lager og markeds­indsigt – så du kan fokusere på forretningen.",
+      features: [
+        "Skræddersyet SEO-strategi og løbende placering-rapporter",
+        "AI-content og grafik – publiceret automatisk på sociale medier",
+        "Analyserer brugeradfærd og øger konverteringsraten",
+        "Holder øje med konkurrenter og leverer ugentlige indsigter",
+        "Booker møder, så din kalender altid er optimeret",
+        "Optimerer lager og indkøb – ingen udsolgte varer eller overkøb",
+        "Market Pulse: varsler trends, lovændringer og nye muligheder",
+      ],
+    },
+
+    // ─────────  ANDREW (PREMIUM)  ─────────
+    {
+      name: "Andrew",
+      title: "Premium Agent",
+      image: "/Tristan.png",
+      isPremium: true,
+      pitch:
+          "En alt‑i‑én agent til salg, kundeservice, SEO, SOME, lead‑gen og markeds­indsigt – perfekt til brands, der vil ligge et skridt foran.",
+      features: [
+        "Virtuel sælger aktiv 24/7 via hjemmesiden",
+        "Auto‑besvarer kontaktformularer øjeblikkeligt - øger konverteringsraten",
+        "Auto‑besvarer spørgsmål på web, mail, IG, Messenger & WhatsApp - bedre service",
+        "Guidet produkt­anbefaling tilpasset kundens behov - nemmere beslutningsproces for kunden - mere salg",
+        "Månedlige SEO‑rapporter med handlingsklare anbefalinger",
+        "Planlægger og poster indhold automatisk på sociale medier",
+        "Market Pulse: spotter trends og lovændringer før konkurrenterne",
+        "Konkurrentovervågning med ugentlige, handlingsklare indsigter",
+        "Auto‑booking af møder direkte fra chat og mail",
+        "Sender automatiske påmindelser til at fastholde engagement",
+        "Finder og kvalificerer leads via Google Maps",
+        "LinkedIn‑outreach til relevante beslutningstagere",
+        "Quick Mail: skriv stikord – Andrew sender professionel mail",
+      ],
+    },
   ];
 
   return (
-    <section id="services" className="section-padding bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Our Core <span className="gradient-text">AI-Agents</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Mød vores intelligente agenter, der hver især specialiserer sig i at automatisere 
-            og optimere specifikke forretningsområder.
-          </p>
-        </div>
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Titel og beskrivelse */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              Vores <span className="text-indigo-500">AI-Agents</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Hver agent er specialiseret i at automatisere og optimere et
+              forretningsområde, så du kan skalere uden at ansætte flere hænder.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {agents.map((agent, index) => (
-            <div key={agent.name} className="slide-up" style={{animationDelay: `${index * 0.2}s`}}>
-              <AgentCard {...agent} />
-            </div>
-          ))}
+          {/* Grid med kortene */}
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 auto-rows-fr">
+            {agents.map((agent) => (
+                <AgentCard key={agent.name} {...agent} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 }

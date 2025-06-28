@@ -14,12 +14,12 @@ export default defineConfig(({ mode }) => ({
         target: "https://superdev.build",
         changeOrigin: true,
         rewrite: (path) =>
-          path.replace(/^\/api\/integrations/, "/api/integrations"),
+            path.replace(/^\/api\/integrations/, "/api/integrations"),
       },
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(
-    Boolean
+      Boolean
   ),
   resolve: {
     alias: {

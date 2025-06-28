@@ -32,15 +32,11 @@ export function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-gray-600">
                 <Mail size={16} className="text-purple-600" />
-                <span>kontakt@syncoreai.dk</span>
+                <span>info@syncore-ai.dk</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-600">
                 <Phone size={16} className="text-purple-600" />
-                <span>+45 12 34 56 78</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-600">
-                <MapPin size={16} className="text-purple-600" />
-                <span>København, Danmark</span>
+                <span>+45 31 46 95 38</span>
               </div>
             </div>
           </div>
@@ -92,7 +88,7 @@ export function Footer() {
 
         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
           <p className="text-gray-600">
-            © 2024 SyncoreAI. Alle rettigheder forbeholdes.
+            © 2025 SyncoreAI. Alle rettigheder forbeholdes.
           </p>
         </div>
       </div>
