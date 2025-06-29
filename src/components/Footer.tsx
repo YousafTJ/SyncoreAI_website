@@ -38,6 +38,10 @@ export function Footer() {
                 <Phone size={16} className="text-purple-600" />
                 <span>+45 31 46 95 38</span>
               </div>
+              <div className="flex items-center space-x-2 text-gray-600">
+                <p>CVR:</p>
+                <span>45608867</span>
+              </div>
             </div>
           </div>
 
