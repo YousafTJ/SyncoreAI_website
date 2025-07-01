@@ -143,8 +143,8 @@ const Cookies = () => {
               </p>
               <div className="mt-4 p-4 bg-gray-50 rounded-lg">
                 <p className="text-gray-800 font-medium">SyncoreAI</p>
-                <p className="text-gray-600">E-mail: kontakt@syncoreai.dk</p>
-                <p className="text-gray-600">Telefon: +45 12 34 56 78</p>
+                <p className="text-gray-600">E-mail: info@syncore-ai.com</p>
+                <p className="text-gray-600">Telefon: +45 31 46 95 38</p>
               </div>
             </section>
 
@@ -155,7 +155,7 @@ const Cookies = () => {
                 i vores praksis eller af andre operationelle, juridiske eller regulatoriske årsager.
               </p>
               <p className="text-gray-600 leading-relaxed mt-4">
-                <strong>Sidst opdateret:</strong> Januar 2024
+                <strong>Sidst opdateret:</strong> Juni 2025
               </p>
             </section>
           </div>

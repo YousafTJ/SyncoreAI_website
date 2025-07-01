@@ -1,0 +1,8 @@
+# Tillader alle søgemaskiner adgang til hele siden
+User-agent: *
+
+# Tillad crawling af alle sider
+Disallow:
+
+# Angiv placeringen af sitemap
+Sitemap: https://www.syncoreai.dk/sitemap.xml
