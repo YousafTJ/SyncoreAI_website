@@ -136,14 +136,16 @@ export function ContactForm() {
                             />
                             <label htmlFor="privacy" className="text-sm text-gray-600">
                                 Jeg har læst og accepterer&nbsp;
-                                <Link
-                                    to="/privacy-policy"
+                                <a
+                                    href="/privacy-policy"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="text-purple-600 underline hover:text-purple-700"
                                 >
                                     privatpolitikken
-                                </Link>
+                                </a>
                             </label>
+
                         </div>
 
                         {/* knap */}
