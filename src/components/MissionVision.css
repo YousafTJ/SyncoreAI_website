@@ -1,0 +1,28 @@
+.mv-card-simple {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card-simple:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px rgba(124, 58, 237, 0.4);
+}
+
+.mv-title {
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+    font-weight: 800;
+    color: #f3e8ff; /* lys lilla */
+    margin-bottom: 1rem;
+}
+
+.mv-text {
+    font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1rem);
+    line-height: 1.6;
+    color: #fdf4ff; /* næsten hvid med lilla nuance */
+}

@@ -9,33 +9,31 @@ import {
     CheckCircle,
     XCircle,
 } from "lucide-react";
-import { Link } from "react-router-dom";               // ← link til privacy-page
+import { Link } from "react-router-dom";
 
 const WEBHOOK_URL =
-    "https://hook.eu2.make.com/63q29k6kplybgtb76s6ndpjh1agsu76o";
+    "https://syncoreai.app.n8n.cloud/webhook-test/0acdf107-5778-4571-ab05-62b27db697b1";
+
 
 export function ContactForm() {
-    /* ---------------- state ---------------- */
     const [formData, setFormData] = useState({
         name: "",
         company: "",
         email: "",
         message: "",
     });
-    const [accepted, setAccepted] = useState(false);    // ✔ privatpolitik-check
-    const [status, setStatus] = useState<
-        "idle" | "loading" | "success" | "error"
-    >("idle");
+    const [accepted, setAccepted] = useState(false);
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+        "idle"
+    );
 
-    /* --------------- handlers --------------- */
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) =>
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    ) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!accepted) return;                            // sikkerheds-tjek
+        if (!accepted) return;
         setStatus("loading");
 
         try {
@@ -57,23 +55,22 @@ export function ContactForm() {
         }
     };
 
-    /* ---------------- UI ---------------- */
     return (
-        <section id="contact" className="section-padding bg-white">
-            <div className="max-w-4xl mx-auto">
-                {/* -------- Header -------- */}
-                <div className="text-center mb-12 slide-up">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                        Lad os <span className="gradient-text">tale sammen</span>
+        <section id="contact" className="section-padding bg-black">
+            <div className="max-w-6xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-10">
+                    <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+                        Lad os <span className="text-violet-300">tale sammen</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
                         Har du spørgsmål til vores AI-agenter eller automation? Udfyld
                         formularen – vi svarer hurtigst muligt.
                     </p>
                 </div>
 
-                {/* -------- Card -------- */}
-                <div className="glass-card p-8 md:p-12 slide-up transition-all duration-300">
+                {/* Card */}
+                <div className="rounded-2xl p-8 md:p-10 bg-[#0b0b11]/80 backdrop-blur-md border-2 border-violet-300/60 shadow-[0_24px_70px_rgba(0,0,0,.55)] ring-1 ring-violet-200/40">
                     {status === "success" && (
                         <Banner type="success" text="Besked sendt! Vi vender tilbage ASAP." />
                     )}
@@ -81,9 +78,9 @@ export function ContactForm() {
                         <Banner type="error" text="Noget gik galt – prøv igen." />
                     )}
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-5">
                         {/* navn + firma */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <Input
                                 icon={User}
                                 id="name"
@@ -96,7 +93,8 @@ export function ContactForm() {
                             <Input
                                 icon={Building}
                                 id="company"
-                                label="Virksomhed"
+                                label="Virksomhed *"
+                                required
                                 value={formData.company}
                                 onChange={handleChange}
                                 placeholder="Virksomhedsnavn"
@@ -118,42 +116,46 @@ export function ContactForm() {
                         {/* besked */}
                         <Textarea
                             id="message"
-                            label="Spørgsmål / behov"
+                            label="Spørgsmål / behov *"
+                            required
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Beskriv dine ønsker til AI-løsning, automations-idéer …"
+                            rows={4} // kortere for mindre højde
                         />
 
-                        {/* PRIVACY-CHECKBOX */}
+                        {/* PRIVACY */}
                         <div className="flex items-start gap-3">
                             <input
                                 type="checkbox"
                                 id="privacy"
                                 checked={accepted}
                                 onChange={() => setAccepted((v) => !v)}
-                                className="mt-1 h-5 w-5 shrink-0 rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+                                className="mt-1 h-5 w-5 shrink-0 rounded border-2 border-violet-300/80 bg-black/40 text-violet-500 focus:ring-violet-400 accent-violet-500"
                                 required
                             />
-                            <label htmlFor="privacy" className="text-sm text-gray-600">
-                                Jeg har læst og accepterer&nbsp;
-                                <a
-                                    href="/privacy-policy"
+                            <label htmlFor="privacy" className="text-sm text-white/90">
+                                Jeg har læst og accepterer{" "}
+                                <Link
+                                    to="/privacy-policy"
                                     target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-purple-600 underline hover:text-purple-700"
+                                    className="text-violet-200 underline hover:text-white"
                                 >
                                     privatpolitikken
-                                </a>
+                                </Link>
                             </label>
-
                         </div>
 
                         {/* knap */}
-                        <div className="flex justify-center pt-4">
+                        <div className="flex justify-center pt-2">
                             <button
                                 type="submit"
                                 disabled={status === "loading" || !accepted}
-                                className="btn-primary flex items-center gap-2 px-12 py-4 text-lg disabled:opacity-60"
+                                className="inline-flex items-center gap-2 px-10 py-3.5 text-lg font-semibold rounded-xl
+                  bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500
+                  text-white shadow-[0_12px_30px_rgba(124,58,237,.40)]
+                  focus:outline-none focus:ring-2 focus:ring-white/70
+                  disabled:opacity-60 transition"
                             >
                                 {status === "loading" ? (
                                     <>
@@ -162,7 +164,7 @@ export function ContactForm() {
                                     </>
                                 ) : (
                                     <>
-                                        <span>Send Besked</span>
+                                        <span>Send besked</span>
                                         <Send size={20} />
                                     </>
                                 )}
@@ -171,7 +173,7 @@ export function ContactForm() {
                     </form>
 
                     {/* kontakt-info */}
-                    <div className="mt-12 pt-8 border-t border-gray-200">
+                    <div className="mt-10 pt-6 border-t-2 border-violet-300/50">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                             <Info icon={Mail} title="E-mail" text="info@syncore-ai.dk" />
                             <Info icon={MessageSquare} title="Responstid" text="Inden for 5 min" />
@@ -184,7 +186,7 @@ export function ContactForm() {
     );
 }
 
-/* ---------- Genbrugskomponenter ---------- */
+/* ---------- Genbrugskomponenter (kontrast + tydelig border) ---------- */
 function Input({
                    icon: Icon,
                    id,
@@ -199,15 +201,19 @@ function Input({
         <div className="space-y-2">
             <label
                 htmlFor={id}
-                className="flex items-center gap-2 text-sm font-medium text-gray-700"
+                className="flex items-center gap-2 text-sm font-semibold text-white"
             >
-                <Icon size={16} className="text-purple-600" />
+                <Icon size={16} className="text-white" />
                 <span>{label}</span>
             </label>
             <input
                 id={id}
                 name={id}
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                className="w-full px-4 py-3 rounded-xl
+          bg-[#0c0c12]/70 border-2 border-violet-300/70
+          text-white placeholder-white/60
+          focus:outline-none focus:ring-2 focus:ring-white/70 focus:border-white
+          transition"
                 {...rest}
             />
         </div>
@@ -217,65 +223,60 @@ function Input({
 function Textarea({
                       id,
                       label,
+                      rows = 4,
                       ...rest
                   }: {
     id: string;
     label: string;
+    rows?: number;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
     return (
         <div className="space-y-2">
             <label
                 htmlFor={id}
-                className="flex items-center gap-2 text-sm font-medium text-gray-700"
+                className="flex items-center gap-2 text-sm font-semibold text-white"
             >
-                <MessageSquare size={16} className="text-purple-600" />
+                <MessageSquare size={16} className="text-white" />
                 <span>{label}</span>
             </label>
             <textarea
                 id={id}
                 name={id}
-                rows={6}
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition resize-none"
+                rows={rows}
+                className="w-full px-4 py-3 rounded-xl
+          bg-[#0c0c12]/70 border-2 border-violet-300/70
+          text-white placeholder-white/60
+          focus:outline-none focus:ring-2 focus:ring-white/70 focus:border-white
+          transition resize-none"
                 {...rest}
             />
         </div>
     );
 }
 
-function Info({
-                  icon: Icon,
-                  title,
-                  text,
-              }: {
-    icon: any;
-    title: string;
-    text: string;
-}) {
+function Info({ icon: Icon, title, text }: { icon: any; title: string; text: string }) {
     return (
         <div className="space-y-2">
-            <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto">
+            <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto
+        bg-violet-700/30 border-2 border-violet-300/70"
+            >
                 <Icon className="text-white" size={20} />
             </div>
-            <h4 className="font-semibold text-gray-800">{title}</h4>
-            <p className="text-gray-600">{text}</p>
+            <h4 className="font-semibold text-white">{title}</h4>
+            <p className="text-white/85">{text}</p>
         </div>
     );
 }
 
-function Banner({
-                    type,
-                    text,
-                }: {
-    type: "success" | "error";
-    text: string;
-}) {
+function Banner({ type, text }: { type: "success" | "error"; text: string }) {
     const Icon = type === "success" ? CheckCircle : XCircle;
     const colors =
         type === "success"
-            ? "bg-green-50 text-green-700"
-            : "bg-red-50 text-red-700";
+            ? "bg-emerald-500/15 text-emerald-200 border-2 border-emerald-300/70"
+            : "bg-rose-500/15 text-rose-200 border-2 border-rose-300/70";
     return (
-        <div className={`mb-6 flex items-center gap-2 px-4 py-3 rounded-xl ${colors}`}>
+        <div className={`mb-5 flex items-center gap-2 px-4 py-3 rounded-xl ${colors}`}>
             <Icon size={18} />
             {text}
         </div>

@@ -1,16 +1,34 @@
 // src/pages/Index.tsx
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import { Navigation } from "../components/Navigation";
 import { Hero } from "../components/Hero";
 import { Vision } from "../components/Vision";
-import { Mission } from "../components/Mission";
+// import { Mission } from "../components/Mission"; // fjernet/kommenteret ud
 import { CoreServices } from "../components/CoreServices";
 import { BespokeAutomation } from "../components/BespokeAutomation";
-import { CTABanner } from "../components/CTABanner";
+// import { CTABanner } from "../components/CTABanner"; // fjernet
 import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 
 const Index = () => {
+    const location = useLocation();
+
+    // Scroll til hash (#kontakt) når route ændres
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.slice(1);
+            const el = document.getElementById(id);
+            if (el) {
+                requestAnimationFrame(() => {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            }
+        }
+    }, [location]);
+
     return (
         <>
             <Helmet>
@@ -51,9 +69,13 @@ const Index = () => {
                 <CoreServices />
                 <BespokeAutomation />
                 <Vision />
-                <Mission />
-                <CTABanner />
-                <ContactForm />
+                {/* <Mission /> */}
+
+                {/* Kontaktformularen med ID så /#kontakt virker */}
+                <section id="kontakt">
+                    <ContactForm />
+                </section>
+
                 <Footer />
             </div>
         </>
