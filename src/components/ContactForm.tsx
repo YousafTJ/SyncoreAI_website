@@ -9,33 +9,30 @@ import {
     CheckCircle,
     XCircle,
 } from "lucide-react";
-import { Link } from "react-router-dom";               // ← link til privacy-page
+import { Link } from "react-router-dom";
 
 const WEBHOOK_URL =
     "https://hook.eu2.make.com/63q29k6kplybgtb76s6ndpjh1agsu76o";
 
 export function ContactForm() {
-    /* ---------------- state ---------------- */
     const [formData, setFormData] = useState({
         name: "",
         company: "",
         email: "",
         message: "",
     });
-    const [accepted, setAccepted] = useState(false);    // ✔ privatpolitik-check
-    const [status, setStatus] = useState<
-        "idle" | "loading" | "success" | "error"
-    >("idle");
+    const [accepted, setAccepted] = useState(false);
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+        "idle"
+    );
 
-    /* --------------- handlers --------------- */
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) =>
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    ) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!accepted) return;                            // sikkerheds-tjek
+        if (!accepted) return;
         setStatus("loading");
 
         try {
@@ -57,23 +54,22 @@ export function ContactForm() {
         }
     };
 
-    /* ---------------- UI ---------------- */
     return (
-        <section id="contact" className="section-padding bg-white">
+        <section id="contact" className="section-padding bg-black">
             <div className="max-w-4xl mx-auto">
-                {/* -------- Header -------- */}
-                <div className="text-center mb-12 slide-up">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                        Lad os <span className="gradient-text">tale sammen</span>
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-violet-100">
+                        Lad os <span className="text-violet-300">tale sammen</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl text-violet-200/80 max-w-2xl mx-auto">
                         Har du spørgsmål til vores AI-agenter eller automation? Udfyld
                         formularen – vi svarer hurtigst muligt.
                     </p>
                 </div>
 
-                {/* -------- Card -------- */}
-                <div className="glass-card p-8 md:p-12 slide-up transition-all duration-300">
+                {/* Card */}
+                <div className="rounded-2xl p-8 md:p-12 bg-[#0b0b11]/70 backdrop-blur-md border border-violet-500/25 shadow-[0_20px_60px_rgba(0,0,0,.45)] ring-1 ring-violet-400/10">
                     {status === "success" && (
                         <Banner type="success" text="Besked sendt! Vi vender tilbage ASAP." />
                     )}
@@ -96,7 +92,8 @@ export function ContactForm() {
                             <Input
                                 icon={Building}
                                 id="company"
-                                label="Virksomhed"
+                                label="Virksomhed *"
+                                required
                                 value={formData.company}
                                 onChange={handleChange}
                                 placeholder="Virksomhedsnavn"
@@ -118,34 +115,33 @@ export function ContactForm() {
                         {/* besked */}
                         <Textarea
                             id="message"
-                            label="Spørgsmål / behov"
+                            label="Spørgsmål / behov *"
+                            required
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Beskriv dine ønsker til AI-løsning, automations-idéer …"
                         />
 
-                        {/* PRIVACY-CHECKBOX */}
+                        {/* PRIVACY */}
                         <div className="flex items-start gap-3">
                             <input
                                 type="checkbox"
                                 id="privacy"
                                 checked={accepted}
                                 onChange={() => setAccepted((v) => !v)}
-                                className="mt-1 h-5 w-5 shrink-0 rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+                                className="mt-1 h-5 w-5 shrink-0 rounded border-violet-500/40 bg-black/40 text-violet-500 focus:ring-violet-500 accent-violet-600"
                                 required
                             />
-                            <label htmlFor="privacy" className="text-sm text-gray-600">
-                                Jeg har læst og accepterer&nbsp;
-                                <a
-                                    href="/privacy-policy"
+                            <label htmlFor="privacy" className="text-sm text-violet-200/90">
+                                Jeg har læst og accepterer{" "}
+                                <Link
+                                    to="/privacy-policy"
                                     target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-purple-600 underline hover:text-purple-700"
+                                    className="text-violet-300 underline hover:text-violet-200"
                                 >
                                     privatpolitikken
-                                </a>
+                                </Link>
                             </label>
-
                         </div>
 
                         {/* knap */}
@@ -153,7 +149,11 @@ export function ContactForm() {
                             <button
                                 type="submit"
                                 disabled={status === "loading" || !accepted}
-                                className="btn-primary flex items-center gap-2 px-12 py-4 text-lg disabled:opacity-60"
+                                className="inline-flex items-center gap-2 px-12 py-4 text-lg font-semibold rounded-xl
+                           bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500
+                           text-white shadow-[0_12px_30px_rgba(124,58,237,.35)]
+                           focus:outline-none focus:ring-2 focus:ring-violet-500/60
+                           disabled:opacity-60 transition"
                             >
                                 {status === "loading" ? (
                                     <>
@@ -162,7 +162,7 @@ export function ContactForm() {
                                     </>
                                 ) : (
                                     <>
-                                        <span>Send Besked</span>
+                                        <span>Send besked</span>
                                         <Send size={20} />
                                     </>
                                 )}
@@ -171,7 +171,7 @@ export function ContactForm() {
                     </form>
 
                     {/* kontakt-info */}
-                    <div className="mt-12 pt-8 border-t border-gray-200">
+                    <div className="mt-12 pt-8 border-t border-violet-500/20">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                             <Info icon={Mail} title="E-mail" text="info@syncore-ai.dk" />
                             <Info icon={MessageSquare} title="Responstid" text="Inden for 5 min" />
@@ -184,7 +184,7 @@ export function ContactForm() {
     );
 }
 
-/* ---------- Genbrugskomponenter ---------- */
+/* ---------- Genbrugskomponenter (mørk + lilla) ---------- */
 function Input({
                    icon: Icon,
                    id,
@@ -199,15 +199,19 @@ function Input({
         <div className="space-y-2">
             <label
                 htmlFor={id}
-                className="flex items-center gap-2 text-sm font-medium text-gray-700"
+                className="flex items-center gap-2 text-sm font-medium text-violet-200"
             >
-                <Icon size={16} className="text-purple-600" />
+                <Icon size={16} className="text-violet-300" />
                 <span>{label}</span>
             </label>
             <input
                 id={id}
                 name={id}
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                className="w-full px-4 py-3 rounded-xl
+                   bg-black/40 border border-violet-500/30
+                   text-violet-50 placeholder-violet-200/40
+                   focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-400/60
+                   transition"
                 {...rest}
             />
         </div>
@@ -218,62 +222,50 @@ function Textarea({
                       id,
                       label,
                       ...rest
-                  }: {
-    id: string;
-    label: string;
-} & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+                  }: { id: string; label: string } & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
     return (
         <div className="space-y-2">
             <label
                 htmlFor={id}
-                className="flex items-center gap-2 text-sm font-medium text-gray-700"
+                className="flex items-center gap-2 text-sm font-medium text-violet-200"
             >
-                <MessageSquare size={16} className="text-purple-600" />
+                <MessageSquare size={16} className="text-violet-300" />
                 <span>{label}</span>
             </label>
             <textarea
                 id={id}
                 name={id}
                 rows={6}
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 transition resize-none"
+                className="w-full px-4 py-3 rounded-xl
+                   bg-black/40 border border-violet-500/30
+                   text-violet-50 placeholder-violet-200/40
+                   focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-400/60
+                   transition resize-none"
                 {...rest}
             />
         </div>
     );
 }
 
-function Info({
-                  icon: Icon,
-                  title,
-                  text,
-              }: {
-    icon: any;
-    title: string;
-    text: string;
-}) {
+function Info({ icon: Icon, title, text }: { icon: any; title: string; text: string }) {
     return (
         <div className="space-y-2">
-            <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center mx-auto">
-                <Icon className="text-white" size={20} />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto
+                      bg-violet-600/25 border border-violet-500/30">
+                <Icon className="text-violet-200" size={20} />
             </div>
-            <h4 className="font-semibold text-gray-800">{title}</h4>
-            <p className="text-gray-600">{text}</p>
+            <h4 className="font-semibold text-violet-100">{title}</h4>
+            <p className="text-violet-200/80">{text}</p>
         </div>
     );
 }
 
-function Banner({
-                    type,
-                    text,
-                }: {
-    type: "success" | "error";
-    text: string;
-}) {
+function Banner({ type, text }: { type: "success" | "error"; text: string }) {
     const Icon = type === "success" ? CheckCircle : XCircle;
     const colors =
         type === "success"
-            ? "bg-green-50 text-green-700"
-            : "bg-red-50 text-red-700";
+            ? "bg-emerald-500/10 text-emerald-300 border border-emerald-400/30"
+            : "bg-rose-500/10 text-rose-300 border border-rose-400/30";
     return (
         <div className={`mb-6 flex items-center gap-2 px-4 py-3 rounded-xl ${colors}`}>
             <Icon size={18} />

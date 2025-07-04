@@ -1,0 +1,107 @@
+/* Lille label over hver boks */
+.mv-toplabel {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #c4b5fd; /* violet-300 */
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(124,58,237,.12);
+    border: 1px solid rgba(168,85,247,.35);
+}
+
+/* Card wrapper – gjort lidt mindre i højden */
+.mv-card {
+    position: relative;
+    width: 100%;
+    height: clamp(240px, 34vw, 440px); /* ↓ lidt mindre end før */
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0b0b0f;
+    box-shadow:
+            0 0 0 2px rgba(168, 85, 247, 0.55),
+            0 20px 60px rgba(0, 0, 0, 0.45);
+    transition:
+            transform .5s cubic-bezier(.2,.8,.2,1),
+            box-shadow .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.mv-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+            0 0 0 2px rgba(168, 85, 247, 0.75),
+            0 30px 80px rgba(124, 58, 237, 0.35),
+            0 18px 28px rgba(0,0,0,.55);
+}
+
+/* Full-bleed image */
+.mv-card__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+    transition: transform .7s ease;
+}
+.mv-card:hover .mv-card__bg { transform: scale(1.06); }
+
+/* Dark overlay (stærkere på hover) */
+.mv-card__scrim {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 120% at 50% 70%, rgba(10,10,16,0.55) 0%, rgba(10,10,16,0.78) 60%, rgba(8,8,12,0.88) 100%);
+    opacity: .55;
+    transition: opacity .35s ease;
+}
+.mv-card:hover .mv-card__scrim { opacity: .85; }
+
+/* Content reveal */
+.mv-card__content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: grid;
+    align-content: end;
+    gap: 10px;
+    padding: 22px;
+    opacity: 0;
+    transform: translateY(14px) scale(.98);
+    transition: opacity .35s ease, transform .45s ease;
+}
+.mv-card:hover .mv-card__content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Typografi */
+.mv-card__eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #c4b5fd;
+    background: rgba(124,58,237,.16);
+    border: 1px solid rgba(168,85,247,.35);
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.mv-card__title {
+    margin: 2px 0 4px 0;
+    font-size: clamp(22px, 1.15rem + .5vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: #e9d5ff;
+    text-shadow: 0 8px 26px rgba(0,0,0,.45);
+}
+
+.mv-card__description {
+    margin: 0 0 6px 0;
+    font-size: clamp(15px, .9rem + .2vw, 17px);
+    color: rgba(255,255,255,.9);
+    line-height: 1.6;
+    max-width: 70ch;
+    text-shadow: 0 6px 18px rgba(0,0,0,.4);
+}
