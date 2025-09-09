@@ -11,9 +11,11 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// 🚨 Brug altid Production webhook – ikke -test URL
 const WEBHOOK_URL =
-    "https://syncoreai.app.n8n.cloud/webhook-test/0acdf107-5778-4571-ab05-62b27db697b1";
+    "https://syncoreai.app.n8n.cloud/webhook/0acdf107-5778-4571-ab05-62b27db697b1";
 
+type Status = "idle" | "loading" | "success" | "error";
 
 export function ContactForm() {
     const [formData, setFormData] = useState({
@@ -23,9 +25,7 @@ export function ContactForm() {
         message: "",
     });
     const [accepted, setAccepted] = useState(false);
-    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-        "idle"
-    );
+    const [status, setStatus] = useState<Status>("idle");
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,21 +34,22 @@ export function ContactForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!accepted) return;
-        setStatus("loading");
 
+        setStatus("loading");
         try {
             const res = await fetch(WEBHOOK_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
-            if (!res.ok) throw new Error(res.statusText);
+
+            if (!res.ok) throw new Error(await res.text());
 
             setStatus("success");
             setFormData({ name: "", company: "", email: "", message: "" });
             setAccepted(false);
         } catch (err) {
-            console.error(err);
+            console.error("Webhook fejl:", err);
             setStatus("error");
         } finally {
             setTimeout(() => setStatus("idle"), 6000);
@@ -121,7 +122,7 @@ export function ContactForm() {
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Beskriv dine ønsker til AI-løsning, automations-idéer …"
-                            rows={4} // kortere for mindre højde
+                            rows={4}
                         />
 
                         {/* PRIVACY */}
@@ -186,7 +187,7 @@ export function ContactForm() {
     );
 }
 
-/* ---------- Genbrugskomponenter (kontrast + tydelig border) ---------- */
+/* ---------- Genbrugskomponenter ---------- */
 function Input({
                    icon: Icon,
                    id,

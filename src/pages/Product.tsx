@@ -25,23 +25,24 @@ export default function Product() {
             categories: ["AI", "Kundeservice"],
             author: "SyncoreAI",
             desc:
-                "Ai chatbotten er drevet af AI og har en stor informationsdatabase som gør at den kan svarer responsivt med det samme og med rette informationer. Gør det muligt at automatiserer din kundeservice og besparer dig timer samtidig med at forbedre kundeoplevelsen. Forbedre det sidste lag mellem kunden og et potentielt køb hos jer, som skaber mere salg.",
+                "AI-drevet chatbot der svarer hurtigt og korrekt. Automatisér kundeservice, spar tid og skab en bedre kundeoplevelse, som øger salget.",
         },
         {
             title: "Mail agent",
             categories: ["Automation", "E-mail"],
             author: "SyncoreAI",
             desc:
-                "Mail agent som svarer på alle mails i får ud fra informationer og data vi giver den. Den svarer korrekt og på den rette måde så kunderne får besvaret deres spørgsmål og får hurtigere respons tid. Sparer dig flere timer om ugen og konverterer flere kunder med en øget respons tid og bedre kundeoplevelse. Skaber mere fritid og frihed til at du kan fokusere på de andre kritiske aspekter. Skaber labels for hver mail som giver mere struktur og svarer kun på de ting vi fortæller den.",
+                "Intelligent mailagent der håndterer og besvarer henvendelser. Giver hurtigere respons, mere struktur og frigør tid til det vigtige.",
         },
         {
             title: "Hjemmeside",
             categories: ["SEO", "Design"],
             author: "SyncoreAI",
             desc:
-                "Skræddersyet hjemmesider som bygges fra bunden med kode som gør det muligt at personliggøre og ændre den mindste detaljte. Muligt at skabe flot og brugervenligt design efter jeres smag og skabe hjemmesider som sætter et personligt præg på jeres virksomhed. SEO venlig så den ikke bare er flot, men faktisk rækker ud til flere af jeres kunder",
+                "Skræddersyede hjemmesider bygget fra bunden. Flot design, fuld kontrol over detaljer og SEO-optimeret for at nå flere kunder.",
         },
     ];
+
 
     return (
         <>
