@@ -1,293 +1,164 @@
 // src/components/Vision.tsx
-import Aurora from "./Aurora";
-
 export function Vision() {
   return (
       <section
           id="vision"
-          className="relative bg-black text-white py-16 overflow-hidden"
+          className="relative bg-white text-black py-16 overflow-hidden"
       >
-        {/* Aurora baggrund */}
-        <div className="absolute inset-0 -z-10">
-          <Aurora
-              colorStops={["#22C55E", "#A855F7", "#1E3A8A"]}
-              blend={0.4}
-              amplitude={0.8}
-              speed={0.6}
-          />
-        </div>
+        <div className="mx-auto w-full max-w-[1400px] px-8 md:px-16 xl:px-28 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
-        <div className="mx-auto w-full max-w-[1100px] px-8 md:px-16 xl:px-28">
-          <h2 className="text-center text-3xl md:text-4xl font-extrabold tracking-tight mb-10 text-violet-200">
-            Socials
-          </h2>
+          {/* Venstre side - Socials */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-black">
+              Socials
+            </h2>
+            <div className="flex justify-center md:justify-start">
+              <div className="vision-card">
+                <div className="vision-background"></div>
 
-          {/* Uiverse-kortet (lilla tema) */}
-          <div className="ui-parent mx-auto">
-            <div className="ui-card">
-              <div className="ui-logo">
-                <span className="ui-circle ui-circle1" />
-                <span className="ui-circle ui-circle2" />
-                <span className="ui-circle ui-circle3" />
-                <span className="ui-circle ui-circle4" />
-                <span className="ui-circle ui-circle5">
-                {/* “stjerne”/logo glyph – hvid */}
-                  <svg viewBox="0 0 29.667 31.69" className="svg" aria-hidden>
-                  <path d="M12.827,1.628A1.561,1.561,0,0,1,14.31,0h2.964a1.561,1.561,0,0,1,1.483,1.628v11.9a9.252,9.252,0,0,1-2.432,6.852q-2.432,2.409-6.963,2.409T2.4,20.452Q0,18.094,0,13.669V1.628A1.561,1.561,0,0,1,1.483,0h2.98A1.561,1.561,0,0,1,5.947,1.628V13.191a5.635,5.635,0,0,0,.85,3.451,3.153,3.153,0,0,0,2.632,1.094,3.032,3.032,0,0,0,2.582-1.076,5.836,5.836,0,0,0,.816-3.486Z" />
-                  <path
-                      d="M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z"
-                      transform="translate(-45.91 0)"
-                  />
-                  <path
-                      d="M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z"
-                      transform="translate(0 -51.963)"
-                  />
-                </svg>
-              </span>
-              </div>
-
-              <div className="ui-glass" />
-
-              <div className="ui-content">
-                <span className="ui-title">Følg os</span>
-                <span className="ui-text">LinkedIn · Instagram · TikTok</span>
-              </div>
-
-              <div className="ui-bottom">
-                <div className="ui-socials">
-                  {/* Instagram */}
-                  <a
-                      className="ui-social"
-                      href="https://www.instagram.com/syncoreai/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                  >
-                    <svg viewBox="0 0 24 24" className="svg" aria-hidden>
-                      <rect
-                          x="4"
-                          y="4"
-                          width="16"
-                          height="16"
-                          rx="4"
-                          fill="none"
-                      />
-                      <circle cx="12" cy="12" r="4.25" fill="none" />
-                      <circle cx="17.2" cy="6.8" r="1.2" />
-                    </svg>
-                  </a>
-
-                  {/* LinkedIn */}
-                  <a
-                      className="ui-social"
-                      href="https://www.linkedin.com/company/syncoreai/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                  >
-                    <svg viewBox="0 0 24 24" className="svg" aria-hidden>
-                      <rect
-                          x="2.8"
-                          y="2.8"
-                          width="18.4"
-                          height="18.4"
-                          rx="3.6"
-                          fill="none"
-                      />
-                      <circle cx="8" cy="8.2" r="1.15" />
-                      <rect
-                          x="6.9"
-                          y="10.1"
-                          width="2.25"
-                          height="7.4"
-                          rx="1.1"
-                      />
-                      <path d="M12.7 10.1h2.3v1.1c.65-.85 1.5-1.35 2.7-1.35 2.0 0 3.1 1.32 3.1 3.48V18h-2.2v-3.05c0-1.02-.5-1.65-1.5-1.65-1.06 0-1.7.72-1.7 1.7V18h-2.7v-7.9z" />
-                    </svg>
-                  </a>
-
-                  {/* TikTok */}
-                  <a
-                      className="ui-social"
-                      href="https://www.tiktok.com/@syncore_ai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="TikTok"
-                  >
-                    <svg viewBox="0 0 24 24" className="svg" aria-hidden>
-                      <path
-                          d="M13.3 4v5c1.3 1 2.9 1.6 4.6 1.7v2.2c-2-.1-3.6-.7-4.6-1.5v3.4a4 4 0 11-2.7-3.8V4h2.7z"
-                          className="tt-cyan"
-                      />
-                      <path
-                          d="M14.1 4v5.1c1.6 1.1 3.2 1.8 5 1.9V15c-2.1-.1-3.8-.8-5-1.8V18a4.5 4.5 0 11-3.1-4.2V4h3.1z"
-                          className="tt-pink"
-                      />
-                      <path d="M14 4v5.3c1.5 1.2 3.2 1.9 5 2v2.6c-2.1-.1-3.8-.8-5-1.8V18a4.5 4.5 0 11-3-4.2V4h3z" />
-                    </svg>
-                  </a>
-                </div>
-
-                <div className="ui-viewmore">
-                  <button
-                      className="ui-viewmore-btn"
-                      onClick={() =>
-                          window.open(
-                              "https://www.linkedin.com/company/syncoreai/",
-                              "_blank"
-                          )
-                      }
-                  >
-                    Se mere
-                  </button>
+                {/* Instagram */}
+                <a
+                    href="https://www.instagram.com/syncoreai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="vision-box vision-box1 vision-icon"
+                    aria-label="Instagram"
+                >
                   <svg
-                      className="svg"
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden
+                      className="vision-svg-instagram"
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="m6 9 6 6 6-6"></path>
+                    <path
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="40"
+                        d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.41-71-6.48-94.3-6.48s-73.27-1.93-94.3,6.48a54,54,0,0,0-30.41,30.41c-8.41,21-6.48,71-6.48,94.3s-1.93,73.27,6.48,94.3a54,54,0,0,0,30.41,30.41c21,8.41,71,6.48,94.3,6.48s73.27,1.93,94.3-6.48a54,54,0,0,0,30.41-30.41c8.41-21,6.48-71,6.48-94.3S357.12,182.71,348.71,161.71ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.33-148a19.2,19.2,0,1,1,19.2-19.2A19.2,19.2,0,0,1,309.33,190Z"
+                    />
                   </svg>
-                </div>
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                    href="https://www.linkedin.com/company/syncoreai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="vision-box vision-box2 vision-icon"
+                    aria-label="LinkedIn"
+                >
+                  <svg className="vision-svg-small" viewBox="0 0 24 24" aria-hidden>
+                    <path d="M4.98 3.5C4.98 4.6 4.09 5.5 3 5.5S1 4.6 1 3.5 1.91 1.5 3 1.5s1.98.9 1.98 2zM1 8h4v12H1zM9 8h3.8v1.7h.05c.5-.95 1.75-2 3.6-2 3.85 0 4.55 2.5 4.55 5.7V20H17v-5.6c0-1.35-.05-3.1-1.9-3.1-1.9 0-2.2 1.5-2.2 3V20H9z" />
+                  </svg>
+                </a>
+
+                {/* TikTok */}
+                <a
+                    href="https://www.tiktok.com/@syncore_ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="vision-box vision-box3 vision-icon"
+                    aria-label="TikTok"
+                >
+                  <svg className="vision-svg-small" viewBox="0 0 48 48" aria-hidden>
+                    <path d="M31.5,5.5c2.1,0,4.1,0,6.2,0c0.2,2.4,0.9,4.7,2.2,6.7c1.3,2.1,3.1,3.8,5.3,5c-0.1,2.1,0,4.2,0,6.3
+                  c-2.6-0.1-5.2-0.8-7.5-2.1c-1-0.6-1.9-1.3-2.8-2.1c0,5.7,0,11.4,0,17.1c-0.1,2.1-0.7,4.3-1.9,6.1c-1.7,2.6-4.5,4.5-7.5,5.2
+                  c-2.4,0.6-5,0.6-7.4-0.1c-2.6-0.8-5-2.5-6.6-4.7c-1.8-2.4-2.7-5.5-2.5-8.5c0.2-2.9,1.3-5.8,3.2-8c2.1-2.4,5.2-4,8.4-4.4
+                  c2-0.3,4.1-0.2,6.1,0.4c0,2.5,0,5.1,0,7.6c-1.3-0.9-3-1.2-4.5-0.9c-1.5,0.3-2.9,1.2-3.8,2.4c-0.8,1.1-1.2,2.6-1,4
+                  c0.1,1.3,0.7,2.6,1.6,3.6c1,1,2.4,1.6,3.8,1.6c1.3,0,2.7-0.6,3.7-1.6c0.6-0.7,1-1.6,1.1-2.5c0.1-5.7,0-11.4,0.1-17.1
+                  C29.3,12.1,31.6,8.9,31.5,5.5z"/>
+                  </svg>
+                </a>
+
+                <div className="vision-box vision-box4"></div>
               </div>
             </div>
           </div>
+
+          {/* Højre side - "Hvad tilbyder vi?" */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-black">
+              Hvad tilbyder vi?
+            </h2>
+            <img
+                src="/pil-syncore.png"
+                alt="Pil Syncore"
+                className="mx-auto md:mx-0 w-[1000px] md:w-[1200px]"
+            />
+          </div>
         </div>
 
-        {/* Stilark – lilla tema */}
+        {/* CSS beholdes fra tidligere */}
         <style>{`
-        .ui-parent {
-          width: min(90vw, 580px);
-          height: 340px;
-          perspective: 1000px;
-        }
-        .ui-card {
-          height: 100%;
-          border-radius: 36px;
-          background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-          transition: all 0.5s ease-in-out;
-          transform-style: preserve-3d;
-          box-shadow:
-            rgba(80, 24, 120, 0) 40px 50px 25px -40px,
-            rgba(124, 58, 237, 0.25) 0px 25px 25px -5px;
+        .vision-card {
           position: relative;
+          width: 260px;
+          height: 260px;
+          background: #f5f5f5;
+          border-radius: 30px;
+          overflow: hidden;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 7px 29px 0px;
+          transition: all 1s ease-in-out;
+          border: 2px solid #ddd;
         }
-        .ui-glass {
-          transform-style: preserve-3d;
+        .vision-background {
           position: absolute;
-          inset: 8px;
-          border-radius: 40px;
-          border-top-right-radius: 100%;
-          background: linear-gradient(0deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.86) 100%);
-          transform: translate3d(0, 0, 25px);
-          border-left: 1px solid white;
-          border-bottom: 1px solid white;
+          inset: 0;
+          background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+        }
+        .vision-icon { display: inline-block; }
+        .vision-svg-instagram {
+          width: 70%;
+          height: 70%;
+          display: block;
+          margin: auto;
+          stroke: white;
+          stroke-width: 40;
+          fill: transparent;
+        }
+        .vision-svg-small {
+          fill: rgba(255, 255, 255, 0.9);
+          width: 55%;
+          height: 55%;
+          display: block;
+          margin: auto;
           transition: all 0.5s ease-in-out;
         }
-
-        .ui-content {
-          padding: 90px 60px 0 30px;
-          transform: translate3d(0, 0, 26px);
-        }
-        .ui-title {
-          display: block;
-          color: #ffffff; /* hvid */
-          font-weight: 900;
-          font-size: 20px;
-          letter-spacing: .3px;
-        }
-        .ui-text {
-          display: block;
-          color: #ffffff; /* hvid */
-          font-size: 15px;
-          margin-top: 18px;
-        }
-
-        .ui-bottom {
-          padding: 10px 12px;
-          transform-style: preserve-3d;
+        .vision-box {
           position: absolute;
-          bottom: 20px; left: 20px; right: 20px;
-          display: flex; align-items: center; justify-content: space-between;
-          transform: translate3d(0, 0, 26px);
+          padding: 10px;
+          text-align: center;
+          background: rgba(255, 255, 255, 0.25);
+          border-top: 2px solid white;
+          border-right: 1px solid white;
+          border-radius: 12px;
+          box-shadow: rgba(0,0,0,0.15) -7px 7px 20px 0px;
+          transform-origin: bottom left;
+          transition: all 1s ease-in-out;
         }
-
-        .ui-viewmore {
-          display: flex; align-items: center; width: 40%; justify-content: flex-end;
-          transition: transform .2s ease-in-out;
-        }
-        .ui-viewmore:hover { transform: translate3d(0, 0, 10px); }
-        .ui-viewmore-btn {
-          background: none; border: none; color: #ffffff; /* hvid */
-          font-weight: 800; font-size: 12px; cursor: pointer;
-        }
-        .ui-viewmore .svg {
-          fill: none; stroke: #ffffff; /* hvid */
-          stroke-width: 3px; max-height: 15px; margin-left: 6px;
-        }
-
-        .ui-socials { display: flex; gap: 10px; transform-style: preserve-3d; }
-        .ui-social {
-          width: 34px; aspect-ratio: 1; padding: 6px;
-          background: #ffffff; border-radius: 999px; display: grid; place-content: center;
-          box-shadow: rgba(124, 58, 237, 0.45) 0px 7px 5px -5px;
-          transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-        }
-        .ui-social .svg {
-          width: 16px;
-          fill: #7c3aed;
-          stroke: #7c3aed;
-          stroke-width: 2;
-        }
-        .ui-social .svg rect,
-        .ui-social .svg circle,
-        .ui-social .svg path {
-          stroke: #7c3aed;
-        }
-        .ui-social:hover {
-          background: #0b0b0f;
-          transform: translate3d(0,0,50px);
-          box-shadow: rgba(124, 58, 237, 0.35) -5px 20px 10px 0px;
-        }
-        .ui-social:hover .svg,
-        .ui-social:hover .svg rect,
-        .ui-social:hover .svg circle,
-        .ui-social:hover .svg path {
-          fill: #ffffff; stroke: #ffffff;
-        }
-        .ui-social .tt-cyan { fill: #25F4EE; }
-        .ui-social .tt-pink { fill: #FE2C55; }
-
-        .ui-logo { position: absolute; right: 0; top: 0; transform-style: preserve-3d; }
-        .ui-circle {
-          position: absolute; aspect-ratio: 1; border-radius: 50%;
-          top: 0; right: 0;
-          box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
-          backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
-          background: rgba(168, 85, 247, 0.2);
+        .vision-box::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          opacity: 0;
           transition: all 0.5s ease-in-out;
         }
-        .ui-circle1 { width: 170px; transform: translate3d(0,0,20px); top: 8px; right: 8px; }
-        .ui-circle2 { width: 140px; transform: translate3d(0,0,40px); top: 10px; right: 10px; transition-delay: .4s; }
-        .ui-circle3 { width: 110px; transform: translate3d(0,0,60px); top: 17px; right: 17px; transition-delay: .8s; }
-        .ui-circle4 { width: 80px;  transform: translate3d(0,0,80px); top: 23px; right: 23px; transition-delay: 1.2s; }
-        .ui-circle5 {
-          width: 50px; transform: translate3d(0,0,100px); top: 30px; right: 30px;
-          display: grid; place-content: center; transition-delay: 1.6s;
+        .vision-box:hover .vision-svg-instagram,
+        .vision-box:hover .vision-svg-small { fill: #fff; }
+        .vision-box1 { width: 70%; height: 70%; bottom: -70%; left: -70%; }
+        .vision-box1::before {
+          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #ff53d4 60%, #62c2fe 90%);
         }
-        .ui-circle5 .svg { width: 20px; fill: white; }
-
-        .ui-parent:hover .ui-card {
-          transform: rotate3d(1, 1, 0, 28deg);
-          box-shadow:
-            rgba(124, 58, 237, 0.28) 30px 50px 25px -40px,
-            rgba(124, 58, 237, 0.18) 0px 25px 30px 0px;
-        }
-        .ui-parent:hover .ui-circle2 { transform: translate3d(0,0,60px); }
-        .ui-parent:hover .ui-circle3 { transform: translate3d(0,0,80px); }
-        .ui-parent:hover .ui-circle4 { transform: translate3d(0,0,100px); }
-        .ui-parent:hover .ui-circle5 { transform: translate3d(0,0,120px); }
+        .vision-box1:hover::before { opacity: 1; }
+        .vision-box2 { width: 50%; height: 50%; bottom: -50%; left: -50%; transition-delay: 0.2s; }
+        .vision-box2::before { background: #0077b5; }
+        .vision-box2:hover::before { opacity: 1; }
+        .vision-box3 { width: 30%; height: 30%; bottom: -30%; left: -30%; transition-delay: 0.4s; }
+        .vision-box3::before { background: #010101; }
+        .vision-box3:hover::before { opacity: 1; }
+        .vision-box4 { width: 10%; height: 10%; bottom: -10%; left: -10%; transition-delay: 0.6s; }
+        .vision-card:hover { transform: scale(1.1); }
+        .vision-card:hover .vision-box { bottom: -1px; left: -1px; }
       `}</style>
       </section>
   );
